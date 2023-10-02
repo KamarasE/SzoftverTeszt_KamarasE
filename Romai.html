@@ -12,14 +12,22 @@
   function Konvertalo(n) {
 	szam = "";
 	while (n != 0){
-		if (n>=5 && n<=8) {
-		n=n-5;
-		szam += 'V';
+	
+		if (n>=50 && n <= 89) {
+		n=n-50;
+		szam += 'L';
 		}
+	
 		if (n>=10 && n <= 39) {
 		n=n-10;
 		szam += 'X';
 		}
+	
+		if (n>=5 && n<=8) {
+		n=n-5;
+		szam += 'V';
+		}
+		
 		if (n>=1 && n<=3) {
 		szam += 'I';
 		n=n-1;
@@ -32,6 +40,10 @@
 		if (n==9) {
 		szam += 'IX';
 		n=n-9;
+		}
+		if (n==40) {
+		szam += 'XL';
+		n=n-40;
 		}
 	}
 	return szam;
@@ -82,6 +94,19 @@
 	QUnit.test('romai huszonegy', function(assert) {
       assert.equal(Konvertalo(21), 'XXI');
     });
+	
+	QUnit.test('romai negyven', function(assert) {
+      assert.equal(Konvertalo(40), 'XL');
+    });
+	
+	/*QUnit.test('romai negyvenegy', function(assert) {
+      assert.equal(Konvertalo(41), 'XLI');
+    });*/
+	
+	QUnit.test('romai otven', function(assert) {
+      assert.equal(Konvertalo(50), 'L');
+    });
+	
 
   });
 </script>
