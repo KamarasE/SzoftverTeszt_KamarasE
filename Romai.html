@@ -11,24 +11,25 @@
 <script>
   function Konvertalo(n) {
 	szam = "";
-    if (n==1) {
-		return 'I';
-	}
-	if (n==2) {
-		return 'II';
-	}
-	if (n==3) {
-		return 'III';
-	}
-	if (n==4) {
-		return 'IV';
-	}
+	
 	if (n>=5 && n<=9) {
 		n=n-5;
 		szam += 'V';
-		return szam;
-
 	}
+    if (n==1) {
+		szam += 'I';
+	}
+	if (n==2) {
+		szam += 'II';
+	}
+	if (n==3) {
+		szam += 'III';
+	}
+	if (n==4) {
+		szam += 'IV';
+	}
+	return szam;
+	
   }
 
   QUnit.module('Romai', function() {
@@ -50,6 +51,10 @@
 	
 	QUnit.test('romai ot', function(assert) {
       assert.equal(Konvertalo(5), 'V');
+    });
+	
+	QUnit.test('romai hat', function(assert) {
+      assert.equal(Konvertalo(6), 'VI');
     });
 
   });
