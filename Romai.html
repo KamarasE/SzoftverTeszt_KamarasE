@@ -33,17 +33,18 @@
 		n=n-1;
 		}
 			//speciális eset, nagy szám előtt kicsi
-		if (n==4) {
-		szam += 'IV';
-		n=n-4;
+			
+		if (n==40) {
+		szam += 'XL';
+		n=n-40;
 		}
 		if (n==9) {
 		szam += 'IX';
 		n=n-9;
 		}
-		if (n==40) {
-		szam += 'XL';
-		n=n-40;
+		if (n==4) {
+		szam += 'IV';
+		n=n-4;
 		}
 	}
 	return szam;
