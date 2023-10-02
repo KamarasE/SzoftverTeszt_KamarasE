@@ -13,11 +13,39 @@
     if (n==1) {
 		return 'I';
 	}
+	if (n==2) {
+		return 'II';
+	}
+	if (n==3) {
+		return 'III';
+	}
+	if (n==4) {
+		return 'IV';
+	}
+	if (n==5) {
+		return 'V';
+	}
   }
 
   QUnit.module('Romai', function() {
     QUnit.test('romai egy', function(assert) {
       assert.equal(Konvertalo(1), 'I');
+    });
+	
+	QUnit.test('romai ketto', function(assert) {
+      assert.equal(Konvertalo(2), 'II');
+    });
+	
+	QUnit.test('romai harom', function(assert) {
+      assert.equal(Konvertalo(3), 'III');
+    });
+	
+	QUnit.test('romai negy', function(assert) {
+      assert.equal(Konvertalo(4), 'IV');
+    });
+	
+	QUnit.test('romai ot', function(assert) {
+      assert.equal(Konvertalo(5), 'V');
     });
   });
 </script>
