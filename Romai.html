@@ -11,7 +11,12 @@
 <script>
   function Konvertalo(n) {
 	szam = "";
-	while (n != 0){
+	while (n > 0){
+	
+		if (n>=100 && n <= 399) {
+		n=n-100;
+		szam += 'C';
+		}
 	
 		if (n>=50 && n <= 89) {
 		n=n-50;
@@ -112,5 +117,13 @@
       assert.equal(Konvertalo(69), 'LXIX');
     });
 
+	QUnit.test('romai szaz', function(assert) {
+      assert.equal(Konvertalo(100), 'C');
+    });
+	
+	QUnit.test('romai ketszazegy', function(assert) {
+      assert.equal(Konvertalo(201), 'CCI');
+    });
+	
   });
 </script>
