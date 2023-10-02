@@ -12,7 +12,7 @@
   function Konvertalo(n) {
 	szam = "";
 	while (n != 0){
-		if (n>=5 && n<9) {
+		if (n>=5 && n<=8) {
 		n=n-5;
 		szam += 'V';
 		}
@@ -24,9 +24,14 @@
 		szam += 'I';
 		n=n-1;
 		}
+			//speciális eset, nagy szám előtt kicsi
 		if (n==4) {
 		szam += 'IV';
 		n=n-4;
+		}
+		if (n==9) {
+		szam += 'IX';
+		n=n-9;
 		}
 	}
 	return szam;
@@ -64,6 +69,10 @@
 	
 	QUnit.test('romai nyolc', function(assert) {
       assert.equal(Konvertalo(8), 'VIII');
+    });
+	
+	QUnit.test('romai kilenc', function(assert) {
+      assert.equal(Konvertalo(9), 'IX');
     });
 	
 	QUnit.test('romai tiz', function(assert) {
