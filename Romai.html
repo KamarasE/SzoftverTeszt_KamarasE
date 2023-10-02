@@ -10,6 +10,7 @@
 
 <script>
   function Konvertalo(n) {
+	szam = "";
     if (n==1) {
 		return 'I';
 	}
@@ -22,8 +23,11 @@
 	if (n==4) {
 		return 'IV';
 	}
-	if (n==5) {
-		return 'V';
+	if (n>=5 && n<=9) {
+		n=n-5;
+		szam += 'V';
+		return szam;
+
 	}
   }
 
@@ -47,5 +51,6 @@
 	QUnit.test('romai ot', function(assert) {
       assert.equal(Konvertalo(5), 'V');
     });
+
   });
 </script>
