@@ -38,7 +38,15 @@
 		n=n-1;
 		}
 			//speciális eset, nagy szám előtt kicsi
-			
+		
+		if (n==99) {
+		szam += 'IC';
+		n=n-99;
+		}	
+		if (n==90) {
+		szam += 'XC';
+		n=n-90;
+		}	
 		if (n==40) {
 		szam += 'XL';
 		n=n-40;
