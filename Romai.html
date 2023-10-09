@@ -43,6 +43,11 @@
 		}
 		
 		//alap esetek
+		if (n>=1000) {
+		n=n-1000;
+		szam += 'M';
+		}
+		
 		if (n>=500 && n <= 899) {
 		n=n-500;
 		szam += 'D';
@@ -149,6 +154,10 @@
 	
 	QUnit.test('romai negyszaz', function(assert) {
       assert.equal(Konvertalo(400), 'CD');
+    });
+	
+	QUnit.test('romai ezer', function(assert) {
+      assert.equal(Konvertalo(1000), 'M');
     });
 	
   });
