@@ -12,7 +12,32 @@
   function Konvertalo(n) {
 	szam = "";
 	while (n > 0){
-	
+	//speciális eset, nagy szám előtt kicsi
+	if (n==400) {
+		szam += 'CD';
+		n=n-400;
+		}
+		if (n==99) {
+		szam += 'IC';
+		n=n-99;
+		}	
+		if (n==90) {
+		szam += 'XC';
+		n=n-90;
+		}	
+		if (n==40) {
+		szam += 'XL';
+		n=n-40;
+		}
+		if (n==9) {
+		szam += 'IX';
+		n=n-9;
+		}
+		if (n==4) {
+		szam += 'IV';
+		n=n-4;
+		}
+		//alap eset
 		if (n>=100 && n <= 399) {
 		n=n-100;
 		szam += 'C';
@@ -37,28 +62,7 @@
 		szam += 'I';
 		n=n-1;
 		}
-			//speciális eset, nagy szám előtt kicsi
-		
-		if (n==99) {
-		szam += 'IC';
-		n=n-99;
-		}	
-		if (n==90) {
-		szam += 'XC';
-		n=n-90;
-		}	
-		if (n==40) {
-		szam += 'XL';
-		n=n-40;
-		}
-		if (n==9) {
-		szam += 'IX';
-		n=n-9;
-		}
-		if (n==4) {
-		szam += 'IV';
-		n=n-4;
-		}
+			
 	}
 	return szam;
 	
@@ -131,6 +135,10 @@
 	
 	QUnit.test('romai ketszazegy', function(assert) {
       assert.equal(Konvertalo(201), 'CCI');
+    });
+	
+	QUnit.test('romai negyszaz', function(assert) {
+      assert.equal(Konvertalo(400), 'CD');
     });
 	
   });
