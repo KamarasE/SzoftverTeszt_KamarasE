@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+</body>
+
+<script>
+/*
+Terkep:
+11 12 13 14 15
+21 22 23 24 25
+31 32 33 34 35
+41 42 43 44 45
+51 52 53 54 55
+*/
+
+  function Helyzet (x, y, c) {
+	var kezdx = String(x);
+	var kezdy = String(y);
+	
+	return kezdx+kezdy+c;
+    }
+	
+
+  QUnit.module('Holdjaro', function() {
+  
+    QUnit.test('Kezdo', function(assert) {
+      assert.equal(Helyzet(1,1,'W'), "11W");
+    });
+	
+  });
+</script>
