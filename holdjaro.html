@@ -25,11 +25,47 @@ Terkep:
 	return kezdx+kezdy+c;
     }
 	
+	function Utasitas (i,xu,yu,cu){
+	
+		var xyc = Helyzet(xu,yu,cu);
+		var x = Number(xyc[0]);
+		var y = Number(xyc[1]);
+		var c = xyc[2];
+		
+		if(i == 'f'){
+			x--;
+			n = 'N';
+		}
+		if(i == 'b'){
+			x++;
+			n = 'S';
+		}
+		if(i == 'l'){
+			y--;
+			n = 'W';
+		}
+		if(i == 'r'){
+			y++;
+			n = 'E';
+		}
+		
+		var e = Helyzet(x,y,c);
+		return e;
+	
+	}
+	
 
   QUnit.module('Holdjaro', function() {
   
     QUnit.test('Kezdo', function(assert) {
       assert.equal(Helyzet(1,1,'W'), "11W");
+    });
+	QUnit.test('Mozgas', function(assert) {
+      assert.equal(Utasitas('f',3,3,'N'),'23N');
+    });
+	
+	QUnit.test('Mozgas2', function(assert) {
+      assert.equal(Utasitas('r',4,2,'E'),'43E');
     });
 	
   });
