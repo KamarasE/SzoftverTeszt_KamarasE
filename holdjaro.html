@@ -25,6 +25,32 @@ Terkep:
 	return kezdx+kezdy+c;
     }
 	
+	function Szelek(x,y){
+		 var MaxX = 5;
+		 var MinX = 1;
+		 var MaxY = 5;
+		 var MinY = 1;
+		
+		if(x > 5){
+			
+			x = x%5;
+		}
+		if(x < 1){
+			x += 5 ;
+		}
+		
+		if(y > 5){
+			y = y%5;
+		}
+		if(y < 1){
+			y += 5;
+		}
+		
+		var xy =String(x)+String(y)
+		return xy;
+	 }
+	
+	
 	function Utasitas (i,xu,yu,cu){
 	
 		var xyc = Helyzet(xu,yu,cu);
@@ -34,19 +60,19 @@ Terkep:
 		
 		if(i == 'f'){
 			x--;
-			n = 'N';
+			c = 'N';
 		}
 		if(i == 'b'){
 			x++;
-			n = 'S';
+			c = 'S';
 		}
 		if(i == 'l'){
 			y--;
-			n = 'W';
+			c = 'W';
 		}
 		if(i == 'r'){
 			y++;
-			n = 'E';
+			c = 'E';
 		}
 		
 		var e = Helyzet(x,y,c);
@@ -65,7 +91,20 @@ Terkep:
     });
 	
 	QUnit.test('Mozgas2', function(assert) {
-      assert.equal(Utasitas('r',4,2,'E'),'43E');
+      assert.equal(Utasitas('r',4,2,'S'),'43E');
+    });
+	QUnit.test('Mozgas3', function(assert) {
+      assert.equal(Utasitas('b',2,2,'W'),'32S');
+    });
+	
+	QUnit.test('Szelek', function(assert) {
+      assert.equal(Szelek(1,1),'11');
+    });
+	QUnit.test('Szelek2', function(assert) {
+      assert.equal(Szelek(0,1),'51');
+    });
+	QUnit.test('Szelek3', function(assert) {
+      assert.equal(Szelek(2,6),'21');
     });
 	
   });
