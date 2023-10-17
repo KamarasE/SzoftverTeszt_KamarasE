@@ -16,6 +16,8 @@ Terkep:
 31 32 33 34 35
 41 42 43 44 45
 51 52 53 54 55
+
+A 22 33 es 44-es poziciokon akadaly van.
 */
 
   function Helyzet (x, y, c) {
@@ -50,6 +52,20 @@ Terkep:
 		return xy;
 	 }
 	
+	function Akadaly(x,y){
+		if(x == 2 && y == 2){
+			return 'van';
+		}
+		if(x == 3 && y == 3){
+			return 'van';
+		}
+		if(x == 4 && y == 4){
+			return 'van';
+		}
+		else{
+			return 'nincs';
+		}
+	}
 	
 	function Utasitas (i,xu,yu,cu){
 	
@@ -76,8 +92,14 @@ Terkep:
 		}
 		
 		var e = Helyzet(x,y,c);
-		return e;
 	
+		if(Akadaly(x,y) == 'nincs'){
+		return e;
+		}
+		else{
+			var h = Helyzet(xu,yu,nu);
+			return h+' '+'Akadaly érzékelve';
+		}
 	}
 	
 
@@ -105,6 +127,13 @@ Terkep:
     });
 	QUnit.test('Szelek3', function(assert) {
       assert.equal(Szelek(2,6),'21');
+    });
+	
+	QUnit.test('Akadaly', function(assert) {
+      assert.equal(Akadaly(1,3),'nincs');
+    });
+	QUnit.test('Akadaly2', function(assert) {
+      assert.equal(Akadaly(4,4),'van');
     });
 	
   });
