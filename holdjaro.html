@@ -97,8 +97,8 @@ A 22 33 es 44-es poziciokon akadaly van.
 		return e;
 		}
 		else{
-			var h = Helyzet(xu,yu,nu);
-			return h+' '+'Akadaly érzékelve';
+			var h = Helyzet(xu,yu,cu);
+			return h+' '+'Akadaly!';
 		}
 	}
 	
@@ -134,6 +134,10 @@ A 22 33 es 44-es poziciokon akadaly van.
     });
 	QUnit.test('Akadaly2', function(assert) {
       assert.equal(Akadaly(4,4),'van');
+    });
+	
+	QUnit.test('Mozgas4', function(assert) {
+      assert.equal(Utasitas('b',3,4,'W'),'34W Akadaly!');
     });
 	
   });
